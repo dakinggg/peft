@@ -520,6 +520,7 @@ class Linear(nn.Module, LoraLayer):
 
         print(device, dtype)
         print('pre matmul')
+        print(weight_B.shape, weight_A.shape, self.fan_in_fan_out, self.scaling[adapter])
         output_tensor = transpose(weight_B @ weight_A, self.fan_in_fan_out) * self.scaling[adapter]
         print('post matmul')
 
